@@ -1,0 +1,21 @@
+<a ui-sref="login">Login</a>
+<a ui-sref="signup">Signup</a>
+<a ui-sref="myAccount">My Account</a>
+<a ui-sref="confirm">Confirm</a>
+
+<h1>{{login.title}}</h1>
+
+<form ng-submit="login.submit(form, loginForm.$valid)" name="loginForm" novalidate>
+
+  <label>Username
+    <input ng-model="form.username" name="username" type="text" placeholder="username" required >
+  </label>
+  <p ng-if="loginForm.username.$error.required && loginForm.username.$touched">username is required.</p>
+
+  <label>Password
+    <input ng-model="form.password" name="password" type="password" required >
+  </label>
+  <p ng-if="loginForm.password.$error.required && loginForm.password.$touched">password is required.</p>
+
+  <button type="submit">Login</button>
+</form>
