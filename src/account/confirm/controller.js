@@ -1,7 +1,15 @@
 export default class ConfirmController {
-  constructor() {
+  constructor(AwsService) {
+
     this.title = "Confirm"
+
+    this.submit = function (form, validity) {
+      if (validity) {
+        AwsService.confirm(form)
+      }
+    }
+
   }
 }
 
-ConfirmController.$inject = []
+ConfirmController.$inject = ['AwsService']

@@ -9,7 +9,6 @@ import confirm from './account/confirm'
 import config from './config'
 import run from './run'
 
-
 angular.module('app', [uiRouter, login, myAccount, signup, confirm])
 .config(config)
 .run(run)
