@@ -25,6 +25,7 @@
     "imports-loader": "0.6.5",
     "jsbn": "git+https://git@github.com/tatums/jsbn.git",
     "jsonwebtoken": "7.0.1",
+    "jws-jwk": "0.1.4",
     "moment": "2.13.0",
     "raw-loader": "0.5.1",
     "sjcl": "git+ssh://git@github.com/tatums/sjcl.git",
@@ -36,6 +37,8 @@
     "angular-jwt": "0.0.9",
     "jsonwebtoken": "7.0.1",
     "jwk-to-pem": "1.2.5",
+    "jws-jwk": "0.1.4",
+    "njwt": "0.3.1",
     "request": "2.72.0"
   }
 }

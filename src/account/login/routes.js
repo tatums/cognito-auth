@@ -6,6 +6,7 @@ export default function routes($stateProvider) {
       url: '/account/login',
       template: require('./template.html'),
       controller: 'LoginController',
-      controllerAs: 'login'
+      controllerAs: 'login',
+      authenticate: false
     });
 }

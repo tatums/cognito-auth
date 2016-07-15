@@ -6,6 +6,7 @@ export default function routes($stateProvider) {
       url: '/account/confirm',
       template: require('./template.html'),
       controller: 'ConfirmController',
-      controllerAs: 'confirm'
+      controllerAs: 'confirm',
+      authenticate: false
     });
 }

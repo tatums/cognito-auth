@@ -7,6 +7,11 @@ export default class LoginController {
         AwsService.auth(form.username, form.password)
       }
     }
+
+    this.list = () => {
+      AwsService.list()
+    }
+
   }
 }
 

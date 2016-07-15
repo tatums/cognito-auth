@@ -1,12 +1,17 @@
 
-
-
 http://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html
+
 
 
 Get Kids:
 
     https://cognito-idp.us-east-1.amazonaws.com/us-east-1_BGU9CKFCM/.well-known/jwks.json
+
+
+    https://cognito-idp.us-east-1.amazonaws.com/us-east-1_BGU9CKFCM/.well-known/openid-configuration
+
+
+{"authorization_endpoint":"https://cognito-idp.us-east-1.amazonaws.com/us-east-1_BGU9CKFCM","id_token_signing_alg_values_supported":["RS256"],"issuer":"https://cognito-idp.us-east-1.amazonaws.com/us-east-1_BGU9CKFCM","jwks_uri":"https://cognito-idp.us-east-1.amazonaws.com/us-east-1_BGU9CKFCM/.well-known/jwks.json","response_types_supported":["code","id_token","token id_token","none"],"subject_types_supported":["public"]}
 
 
 ```json
