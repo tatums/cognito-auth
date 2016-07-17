@@ -1,37 +1,24 @@
-<a ui-sref="login">Login</a>
-<a ui-sref="signup">Signup</a>
-<a ui-sref="myAccount">My Account</a>
-<a ui-sref="confirm">Confirm</a>
-<h1>{{signup.title}}</h1>
-
-
 <form ng-submit="signup.submit(form, signupForm.$valid)" name="signupForm" novalidate>
-  <div>
-    <label>First Name
-      <input ng-model="form.firstName" name="firstName" type="text" placeholder="firstName" required >
-    </label>
-      <p ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched">firstName is required.</p>
-  </div>
-  <div>
-    <label>Last Name
-      <input ng-model="form.lastName" name="lastName" type="text" placeholder="lastName" required >
-    </label>
-    <p ng-if="signupForm.lastName.$error.required && signupForm.lastName.$touched">lastName is required.</p>
-  </div>
 
-  <div>
-    <label>Email
-      <input ng-model="form.email" name="email" type="text" placeholder="email" required >
-    </label>
-      <p ng-if="signupForm.email.$error.required && signupForm.email.$touched">email is required.</p>
-  </div>
+  <md-input-container>
+    <label for="first-name">First Name</label>
+    <input id="first-name" ng-model="form.firstName" name="firstName" type="text" required>
+  </md-input-container>
 
-  <div>
-    <label>Password
-      <input ng-model="form.password" name="password" type="password" required >
-    </label>
-      <p ng-if="signupForm.password.$error.required && signupForm.password.$touched">password is required.</p>
-  </div>
+  <md-input-container>
+    <label for="last-name">Last Name</label>
+    <input id="last-name" ng-model="form.lastName" name="lastName" type="text" required>
+  </md-input-container>
 
-  <button type="submit">Login</button>
+  <md-input-container>
+    <label for="email">Email</label>
+    <input id="email" ng-model="form.email" name="email" type="text" required>
+  </md-input-container>
+
+  <md-input-container>
+    <label for="password">Password</label>
+    <input id="password" ng-model="form.password" name="password" type="password" required>
+  </md-input-container>
+
+  <md-button type="submit">Sign Up</md-button>
 </form>

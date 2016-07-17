@@ -5,11 +5,13 @@ export default class LoginController {
     this.submit = function (form, validity) {
       if (validity) {
         AwsService.auth(form.username, form.password)
+        .then((resp) => {
+          console.log(resp);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
       }
-    }
-
-    this.list = () => {
-      AwsService.list()
     }
 
   }

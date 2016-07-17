@@ -1,23 +1,17 @@
-<a ui-sref="login">Login</a>
-<a ui-sref="signup">Signup</a>
-<a ui-sref="myAccount">My Account</a>
-<a ui-sref="confirm">Confirm</a>
-
 <h1>{{confirm.title}}</h1>
 
 <form ng-submit="confirm.submit(form, confirmForm.$valid)" name="confirmForm" novalidate>
 
-  <label>Username
-    <input ng-model="form.username" name="username" type="text" placeholder="username" required >
-  </label>
-  <p ng-if="confirmForm.username.$error.required && confirmForm.username.$touched">username is required.</p>
+  <md-input-container>
+    <label>Username</label>
+    <input ng-model="form.username" name="username" type="text" required>
+  </md-input-container>
 
-  <label>Confirmation Code
-    <input ng-model="form.confirmCode" name="confirmCode" type="text" placeholder="code" required >
-  </label>
-  <p ng-if="loginForm.confirmCode.$error.required && loginForm.confirmCode.$touched">confirmation code is required.</p>
+  <md-input-container>
+    <label>Confirmation Code</label>
+    <input ng-model="form.confirmCode" name="confirmCode" type="text" required >
+  </md-input-container>
 
   <button type="submit">Confirm</button>
 
 </form>
-

@@ -1,8 +1,16 @@
-<a ui-sref="login">Login</a>
-<a ui-sref="signup">Signup</a>
-<a ui-sref="myAccount">My Account</a>
-<a ui-sref="confirm">Confirm</a>
 <h1>{{myAccount.title}}</h1>
 
 {{myAccount.currentUser}}
+
+
+
+
+
+<div>
+  <button ng-click="myAccount.signout()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+    Signout
+  </button>
+</div>
+
+
 

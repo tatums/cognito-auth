@@ -1,0 +1,26 @@
+<div layout="row">
+  <md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('login')" name="login">
+        <a ui-sref="account.login">Login</a>
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('signup')" name="signup">
+        <a ui-sref="account.signup">Signup</a>
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('my-account')" name="my-account">
+        <a ui-sref="account.myAccount">My Account</a>
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('confirm')" name="confirm">
+        <a ui-sref="account.confirm">Confirm</a>
+      </md-nav-item>
+    </md-nav-bar>
+    <!--
+    <span>{{currentNavItem}}</span>
+    -->
+
+    <div ui-view></div>
+  </md-content>
+
+</div>
+
+

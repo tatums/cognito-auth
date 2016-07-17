@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Title of the document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognito Auth</title>
     <script type="text/javascript" src="./node_modules/jsbn/jsbn.js"></script>
     <script type="text/javascript" src="./node_modules/jsbn/jsbn2.js"></script>
     <script type="text/javascript" src="./node_modules/sjcl/sjcl.js"></script>
@@ -13,10 +14,10 @@
     <script type="text/javascript" src="./bundle.js"></script>
   </head>
 
-  <body ng-app="app">
+  <body ng-app="app" ng-cloak>
+
 
     <div ui-view></div>
-
   </body>
 
 </html>

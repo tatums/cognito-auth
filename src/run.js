@@ -22,14 +22,17 @@ var jwk = {
   ]
 };
 
+function tokenExpValid (token) {
+  let decodedToken = jws.decode(token)
+  let payload = JSON.parse(decodedToken.payload)
+  return payload.exp > Date.now() / 1000
+}
 
 function tokenValid(user) {
-  // 1 check to tokens expiration
-  // 2 validate token signiture
   if (user) {
     let email = user.username
     let token = getIdToken(user.username)
-    return jws.verify(token, jwk)
+    return jws.verify(token, jwk) && tokenExpValid(token)
   } else {
     return false
   }
@@ -45,7 +48,6 @@ function getIdToken(email) {
 export default function run($rootScope, $state, jwtHelper, AwsService) {
 
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-    //console.log({auth: toState.authenticate, curr: AwsService.currentUser()})
     if ( toState.authenticate) {
       let user = AwsService.currentUser()
 
@@ -53,17 +55,12 @@ export default function run($rootScope, $state, jwtHelper, AwsService) {
         console.log("YEP");
       } else {
         console.log('NEED TO LGOIN');
-        $state.transitionTo("login");
+        $state.transitionTo('account.login');
         event.preventDefault();
       }
     } else {
       console.log('no auth necessary');
     }
-    //if (toState.authenticate && !AuthService.isAuthenticated()){
-    //  // User isn’t authenticated
-    //  $state.transitionTo("login");
-    //  event.preventDefault();
-    //}
   });
 
 }

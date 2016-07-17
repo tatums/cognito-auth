@@ -13,6 +13,10 @@ module.exports = {
         loaders: ['babel']
       },
       {
+        test: /\.css$/,
+        loader: "style!css"
+      },
+      {
         test: /\.html$/,
         loader: 'raw'
       }
