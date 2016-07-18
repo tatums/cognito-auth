@@ -1,24 +1,27 @@
+<h2 class="md-headline">Signup</h2>
+
+<a ui-sref="account.login">Back</a>
 <form ng-submit="signup.submit(form, signupForm.$valid)" name="signupForm" novalidate>
 
-  <md-input-container>
+  <md-input-container class="md-block">
     <label for="first-name">First Name</label>
     <input id="first-name" ng-model="form.firstName" name="firstName" type="text" required>
   </md-input-container>
 
-  <md-input-container>
+  <md-input-container class="md-block">
     <label for="last-name">Last Name</label>
     <input id="last-name" ng-model="form.lastName" name="lastName" type="text" required>
   </md-input-container>
 
-  <md-input-container>
+  <md-input-container class="md-block">
     <label for="email">Email</label>
     <input id="email" ng-model="form.email" name="email" type="text" required>
   </md-input-container>
 
-  <md-input-container>
+  <md-input-container class="md-block">
     <label for="password">Password</label>
     <input id="password" ng-model="form.password" name="password" type="password" required>
   </md-input-container>
 
-  <md-button type="submit">Sign Up</md-button>
+  <md-button class="md-raised" type="submit">Sign Up</md-button>
 </form>

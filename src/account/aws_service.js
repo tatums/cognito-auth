@@ -13,7 +13,6 @@ const userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool({
   ClientId : '3q8g2135i3sn30g0cpo4bu4uop'
 })
 
-
 export default class AwsService {
 
   constructor() { }
@@ -92,43 +91,56 @@ export default class AwsService {
   }
 
   signup (attr) {
-
-    var attributeList = [];
-    var dataEmail = {
+    let attributeList = [];
+    let dataEmail = {
       Name : 'email',
       Value : attr.email
     };
 
-    var dataPhoneNumber = {
+    let dataPhoneNumber = {
       Name : 'phone_number',
       Value : '+15555555555'
     };
 
-    var dataGivenName = {
+    let dataGivenName = {
       Name : 'given_name',
       Value : attr.firstName
     };
 
-    var dataFamilyName = {
+    let dataFamilyName = {
       Name : 'family_name',
       Value : attr.lastName
     };
-    var attributeEmail = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
-    var attributeGivenName = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataGivenName);
-    var attributeFamilyName = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataFamilyName);
+    let attributeEmail = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
+    let attributeGivenName = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataGivenName);
+    let attributeFamilyName = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataFamilyName);
 
     attributeList.push(attributeEmail);
     attributeList.push(attributeGivenName);
     attributeList.push(attributeFamilyName);
 
-    userPool.signUp(attr.email, attr.password, attributeList, null, function(err, result){
-      if (err) {
-        alert(err);
-        return;
-      }
-      cognitoUser = result.user;
-      console.log('user name is ' + cognitoUser.getUsername());
+    let cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser({
+      Username : attr.email,
+      Pool : userPool
     });
+
+    return new Promise((resolve, reject) => {
+      userPool.signUp(attr.email, attr.password, attributeList, null, function(err, result){
+        if (result) {
+          cognitoUser = result.user
+          resolve({
+            success: true,
+            user: result.user
+          })
+        } else {
+          reject({
+            success: false,
+            err: err
+          })
+        }
+      })
+    })
+
   }
 
 }

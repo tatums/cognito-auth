@@ -14,14 +14,6 @@ import confirm from './account/confirm'
 import config from './config'
 import run from './run'
 
-console.log({
-  signup: signup,
-  angularMaterial: angularMaterial
-});
-
-//import 'material-design-lite/dist/material.cyan-deep_orange.min.css'
-//import 'material-design-lite/material.js'
-
 export const app = angular.module('app', [
   uiRouter,
   login,
@@ -33,4 +25,3 @@ export const app = angular.module('app', [
 ])
 .config(config)
 .run(run)
-
